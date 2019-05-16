@@ -1,23 +1,24 @@
 #ifndef NODOSIMPLE_H
 #define NODOSIMPLE_H
 
-#include "Clientes.h"
+#include <string>
+
 class NodoSimple
 {
     typedef NodoSimple * Posicion;
     private:
-        Clientes cliente;
+        std::string turno;
         Posicion siguiente;
 
     public:
         NodoSimple();
-        NodoSimple(Clientes aux);
+        NodoSimple(std::string aux);
         virtual ~NodoSimple();
 
-        Clientes getCliente();
+        std::string getTurno();
         Posicion getSiguiente();
 
-        void setCliente(Clientes aux);
+        void setTurno(std::string aux);
         void setSiguiente(Posicion);
 
 };

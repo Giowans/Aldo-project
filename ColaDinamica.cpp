@@ -2,6 +2,7 @@
 #include <iostream>
 
 using namespace std;
+
 ColaDinamica::ColaDinamica()
 {
     Posicion aux = new NodoSimple();
@@ -9,14 +10,9 @@ ColaDinamica::ColaDinamica()
     fin = aux;
 }
 
-ColaDinamica::~ColaDinamica()
+void ColaDinamica::push(string t)
 {
-    //dtor
-}
-
-void ColaDinamica::insertar(Clientes c)
-{
-    Posicion aux = new NodoSimple(c);
+    Posicion aux = new NodoSimple(t);
 
     if(aux == nullptr){
         std::cout << "Error, Memoria insuficiente"<<std::endl;
@@ -28,20 +24,10 @@ void ColaDinamica::insertar(Clientes c)
     }
 }
 
-void ColaDinamica::mostrar()
-{
-    int contador=1;
-    Posicion aux = inicio->getSiguiente();
-    while(aux != fin->getSiguiente())
-    {
-        cout<<"CLIENTE:"<<endl
-            <<"--Turno de llegada: "<<aux->getCliente().getTurno()<<endl
-            <<"--Operacion: "<<aux->getCliente().getOperacion()<<endl
-            <<"--Turno segun prioridad: "<<contador<<endl
-            <<"-..---..---..---..---..---..---..---..---..---..---";
-        contador++;
-        aux = aux->getSiguiente();
-    }
+string ColaDinamica::pop() {
+    string aux = inicio->getSiguiente()->getTurno();
+    eliminar();
+    return aux;
 }
 
 bool ColaDinamica::estaVacia(){
@@ -73,3 +59,14 @@ Posicion ColaDinamica::ultimoNodo()
     return fin;
 }
 
+int ColaDinamica::tamano() {
+    Posicion aux = inicio->getSiguiente();
+    int i = 0;
+
+    while(aux != fin->getSiguiente()) {
+        aux = aux->getSiguiente();
+        i++;
+    }
+
+    return i > 0 ? i + 1 : 0;
+}
