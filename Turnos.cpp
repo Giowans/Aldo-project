@@ -2,9 +2,8 @@
 
 using namespace std;
 
-Turnos::Turnos() { }
 
-string Turnos::solicitarTurno(const int& prioridad) {
+string Turnos::solicitarTurno(int prioridad) {
   string ficha;
 
   switch (prioridad) {
@@ -16,19 +15,19 @@ string Turnos::solicitarTurno(const int& prioridad) {
 
     case 2:
       ficha = "B" + to_string(colaPrioridad2.tamano() + 1);
-      colaPrioridad1.push(ficha);
+      colaPrioridad2.push(ficha);
       return ficha;
       break;
 
     case 3:
       ficha = "C" + to_string(colaPrioridad3.tamano() + 1);
-      colaPrioridad1.push(ficha);
+      colaPrioridad3.push(ficha);
       return ficha;
       break;
 
     case 4:
       ficha = "D" + to_string(colaPrioridad4.tamano() + 1);
-      colaPrioridad1.push(ficha);
+      colaPrioridad4.push(ficha);
       return ficha;
       break;
 

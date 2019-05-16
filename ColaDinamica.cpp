@@ -10,6 +10,12 @@ ColaDinamica::ColaDinamica()
     fin = aux;
 }
 
+ColaDinamica::~ColaDinamica() {
+    while(!estaVacia()) {
+        eliminar();
+    }
+}
+
 void ColaDinamica::push(string t)
 {
     Posicion aux = new NodoSimple(t);
@@ -31,9 +37,7 @@ string ColaDinamica::pop() {
 }
 
 bool ColaDinamica::estaVacia(){
-    if (inicio == fin)
-        return true;
-    return false;
+    return tamano() == 0 ? true : false;
 }
 
 void ColaDinamica::eliminar()

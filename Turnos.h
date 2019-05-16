@@ -13,7 +13,7 @@ class Turnos {
         ColaDinamica colaPrioridad4;
 
     public:
-        std::string solicitarTurno(const int&);
+        std::string solicitarTurno(int);
         std::string avanzarTurno();
 };
 

@@ -15,6 +15,7 @@ class ColaDinamica
 
     public:
         ColaDinamica();
+        ~ColaDinamica();
         void push(std::string t);
         std::string pop();
         bool estaVacia();

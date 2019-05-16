@@ -8,7 +8,7 @@ void Menu::iniciarMenu() {
   int opcion;
 
   do {
-    cout << "* Turno actual:" << turnoActual << "\t\t\tUltimo turno solicitado: " << ultimoTurno << endl << endl
+    cout << "* Turno actual: " << turnoActual << "\t\t\tUltimo turno solicitado: " << ultimoTurno << endl << endl
          << "1) Avanzar turno caja" << endl
          << "2) Avanzar turno ejecutivo" << endl
          << "3) Solicitar turno" << endl
@@ -29,7 +29,8 @@ void Menu::iniciarMenu() {
         break;
 
       case 3:
-        cout << "-> Su turno es: " << nuevoTurno() << endl << endl;
+        ultimoTurno = nuevoTurno();
+        cout << "-> Su turno es: " << ultimoTurno << endl << endl;
         cin.get();
         break;
     }
@@ -82,7 +83,7 @@ int Menu::menuArea() {
     cout << "* Areas: " << endl
          << "1) Caja" << endl
          << "2) Ejecutivo" << endl << endl
-         << "Ingrese area para la que desea turno:";
+         << "Ingrese area para la que desea turno: ";
 
     cin >> opcion;
   } while (opcion != 1 && opcion != 2);
